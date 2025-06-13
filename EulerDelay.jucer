@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="PF7asr" name="EulerDelay" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="BernoulliAudio"
+              pluginFormats="buildAU,buildStandalone" cppLanguageStandard="20">
+  <MAINGROUP id="m12Rks" name="EulerDelay">
+    <GROUP id="{9AC5B87D-2FDB-E3BC-D24C-0113F6F80F36}" name="Assets">
+      <FILE id="YytqQ4" name="Lato-Medium.ttf" compile="0" resource="1" file="Resources/Lato-Medium.ttf"/>
+    </GROUP>
+    <GROUP id="{2508A3E8-60ED-9EEA-98F9-14E6DE95CB18}" name="LookAndFeel">
+      <FILE id="jNdTqN" name="MyLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/MyLookAndFeel.cpp"/>
+      <FILE id="TCF5j8" name="MyLookAndFeel.h" compile="0" resource="0" file="Source/MyLookAndFeel.h"/>
+    </GROUP>
+    <GROUP id="{D1D92B05-9AA8-BC2C-985D-BA9693DA3E4A}" name="Panels">
+      <FILE id="qwOKDD" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
+      <FILE id="kfbknM" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
+      <FILE id="gu2BOF" name="PanelControl.cpp" compile="1" resource="0"
+            file="Source/PanelControl.cpp"/>
+      <FILE id="F0kMYX" name="PanelControl.h" compile="0" resource="0" file="Source/PanelControl.h"/>
+      <FILE id="eDeUmS" name="PanelDelay.cpp" compile="1" resource="0" file="Source/PanelDelay.cpp"/>
+      <FILE id="Fih9Va" name="PanelDelay.h" compile="0" resource="0" file="Source/PanelDelay.h"/>
+      <FILE id="DzXAyt" name="PanelFeedback.cpp" compile="1" resource="0"
+            file="Source/PanelFeedback.cpp"/>
+      <FILE id="ksKqhA" name="PanelFeedback.h" compile="0" resource="0" file="Source/PanelFeedback.h"/>
+      <FILE id="CILBib" name="PanelOutput.cpp" compile="1" resource="0" file="Source/PanelOutput.cpp"/>
+      <FILE id="jTCh1T" name="PanelOutput.h" compile="0" resource="0" file="Source/PanelOutput.h"/>
+      <FILE id="KhW3rv" name="PanelPingPong.cpp" compile="1" resource="0"
+            file="Source/PanelPingPong.cpp"/>
+      <FILE id="QSj58c" name="PanelPingPong.h" compile="0" resource="0" file="Source/PanelPingPong.h"/>
+    </GROUP>
+    <GROUP id="{C4A82302-6A83-0665-99A8-475D16A06616}" name="Component">
+      <FILE id="Awbdaf" name="MyParamToggleButton.cpp" compile="1" resource="0"
+            file="Source/MyParamToggleButton.cpp"/>
+      <FILE id="WC0C5B" name="MyParamToggleButton.h" compile="0" resource="0"
+            file="Source/MyParamToggleButton.h"/>
+      <FILE id="cwwbGG" name="MyPresetComboBox.cpp" compile="1" resource="0"
+            file="Source/MyPresetComboBox.cpp"/>
+      <FILE id="L5cHun" name="MyPresetComboBox.h" compile="0" resource="0"
+            file="Source/MyPresetComboBox.h"/>
+      <FILE id="iuQ9g1" name="MyRotaryKnob.cpp" compile="1" resource="0"
+            file="Source/MyRotaryKnob.cpp"/>
+      <FILE id="Lnjv4r" name="MyRotaryKnob.h" compile="0" resource="0" file="Source/MyRotaryKnob.h"/>
+    </GROUP>
+    <GROUP id="{D5800914-3AD5-6E6D-06B5-BFF41F52E615}" name="Modules">
+      <FILE id="ywgsNr" name="ModuleDelay.cpp" compile="1" resource="0" file="Source/ModuleDelay.cpp"/>
+      <FILE id="zpFxW9" name="ModuleDelay.h" compile="0" resource="0" file="Source/ModuleDelay.h"/>
+      <FILE id="zNa9Is" name="ModuleFeedback.cpp" compile="1" resource="0"
+            file="Source/ModuleFeedback.cpp"/>
+      <FILE id="PqoB1I" name="ModuleFeedback.h" compile="0" resource="0"
+            file="Source/ModuleFeedback.h"/>
+      <FILE id="pC5wjv" name="ModuleOutput.cpp" compile="1" resource="0"
+            file="Source/ModuleOutput.cpp"/>
+      <FILE id="Z6XHFl" name="ModuleOutput.h" compile="0" resource="0" file="Source/ModuleOutput.h"/>
+      <FILE id="NKyeo3" name="ModulePingPong.cpp" compile="1" resource="0"
+            file="Source/ModulePingPong.cpp"/>
+      <FILE id="WbGXgO" name="ModulePingPong.h" compile="0" resource="0"
+            file="Source/ModulePingPong.h"/>
+    </GROUP>
+    <GROUP id="{48628977-D80D-3C93-6B87-4B1489E6DE4F}" name="Util">
+      <FILE id="IOpaEH" name="MyHelper.h" compile="0" resource="0" file="Source/MyHelper.h"/>
+      <FILE id="ZHUSYS" name="MyPresetManager.cpp" compile="1" resource="0"
+            file="Source/MyPresetManager.cpp"/>
+      <FILE id="WTlMx1" name="MyPresetManager.h" compile="0" resource="0"
+            file="Source/MyPresetManager.h"/>
+      <FILE id="RbZQxJ" name="MySize.h" compile="0" resource="0" file="Source/MySize.h"/>
+      <FILE id="EUazu8" name="MySmoother.cpp" compile="1" resource="0" file="Source/MySmoother.cpp"/>
+      <FILE id="zNfvT6" name="MySmoother.h" compile="0" resource="0" file="Source/MySmoother.h"/>
+    </GROUP>
+    <GROUP id="{267DBBC9-2F01-672C-DEB9-F0E9A318CEF4}" name="DSP">
+      <FILE id="y8L1S0" name="MyDelay.cpp" compile="1" resource="0" file="Source/MyDelay.cpp"/>
+      <FILE id="xJeC0e" name="MyDelay.h" compile="0" resource="0" file="Source/MyDelay.h"/>
+      <FILE id="YOTCB8" name="MyFeedback.cpp" compile="1" resource="0" file="Source/MyFeedback.cpp"/>
+      <FILE id="RnBy6W" name="MyFeedback.h" compile="0" resource="0" file="Source/MyFeedback.h"/>
+      <FILE id="BvuC7y" name="MyFilters.cpp" compile="1" resource="0" file="Source/MyFilters.cpp"/>
+      <FILE id="hXd2Io" name="MyFilters.h" compile="0" resource="0" file="Source/MyFilters.h"/>
+      <FILE id="aOHDb3" name="MyPanning.cpp" compile="1" resource="0" file="Source/MyPanning.cpp"/>
+      <FILE id="gFJRt2" name="MyPanning.h" compile="0" resource="0" file="Source/MyPanning.h"/>
+    </GROUP>
+    <GROUP id="{696F8AF5-2561-56A0-F72B-6EEF8ACB6F8D}" name="Parameters">
+      <FILE id="y3kCXz" name="MyParameters.cpp" compile="1" resource="0"
+            file="Source/MyParameters.cpp"/>
+      <FILE id="QUnETf" name="MyParameters.h" compile="0" resource="0" file="Source/MyParameters.h"/>
+    </GROUP>
+    <GROUP id="{C16C2C17-3BC9-9624-FAF6-C5FCAB06053C}" name="Source">
+      <FILE id="pjd4yM" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="Eim3di" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="leekkQ" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="fKRk0d" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="EulerDelay" recommendedWarnings="LLVM"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="EulerDelay"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
