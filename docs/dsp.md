@@ -11,7 +11,7 @@ The above block diagram illustrates the overall DSP architecture of this delay p
 
 ----------
 
-**1. Pan & Ping-Pong Module**
+## 1. Pan & Ping-Pong Module
 
 ### 🔷 Overview
 The following DSP flow is handled in real-time inside the `processBlock()` function:
@@ -53,3 +53,54 @@ As shown in the graph above, these functions ensure:
 - Which provides a **consistent perceived loudness** as the signal moves across the stereo field
 
 This method is widely used in audio production because it ensures natural-sounding panning without loudness dips or boosts.
+
+<br>
+
+~~~cpp
+void MyPanning::process(const float inSampleL, const float inSampleR,
+                        float& outSampleL, float& outSampleR,
+                        const bool inPanning, const float inWidth) noexcept
+{
+    if (inPanning)
+    {
+        if (inWidth != mWidth)
+        {
+            mWidth = inWidth;
+            const float x = (MathConstants<float>::pi * 0.25f) * (inWidth + 1.0f);
+            mPanL = std::cos(x);
+            mPanR = std::sin(x);
+        }
+
+        const float mono = 0.5f * (inSampleL + inSampleR);
+        outSampleL = mono * mPanL;
+        outSampleR = mono * mPanR;
+    }
+    else
+    {
+        outSampleL = inSampleL;
+        outSampleR = inSampleR;
+    }
+}
+~~~
+<br>
+
+### 🔁 Ping-Pong Logic
+
+The ping-pong effect swaps feedback paths between the channels to create a bouncing stereo effect.
+
+~~~cpp
+void ModulePingPong::process(const float inSampleL, const float inSampleR,
+                             const float inFeedbackL, const float inFeedbackR,
+                             float& outSampleL, float& outSampleR,
+                             const bool inPingPong, const float inWidth) noexcept
+ {
+    float outPanL = 0.0f;
+    float outPanR = 0.0f;
+    
+    mPanning.process(inSampleL, inSampleR, outPanL, outPanR, inPingPong, inWidth);
+    
+    outSampleL = inPingPong ? (outPanL + inFeedbackR) : (outPanL + inFeedbackL);
+    outSampleR = inPingPong ? (outPanR + inFeedbackL) : (outPanR + inFeedbackR);
+ }
+~~~
+This logic dynamically redirects the feedback paths depending on the ping-pong state.
