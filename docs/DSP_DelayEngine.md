@@ -13,3 +13,11 @@ A circular buffer is a fixed-size data structure that treats memory as a ring, w
 
 - TAIL (Write Index): where new incoming samples are stored
 - HEAD (Read Index): where delayed samples are retrieved
+
+This mechanism allows efficient, continuous memory reuse without shifting data, which is ideal for real-time audio processing.
+
+Why it's used in delay DSP:
+
+- Fixed memory size: perfect for time-based delays with a maximum delay time
+- Fast performance: read/write in constant time without dynamic memory allocation
+- Natural fit for time-based indexing: past samples can be accessed by computing readIndex = writeIndex - delaySamples, with wrap-around handling
