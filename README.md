@@ -14,7 +14,7 @@ A JUCE-based delay plugin developed in C++.
 
 🕒 **Delay Section**
 - Tempo-synced or time-based delay modes (sync to BPM or set in milliseconds)
-- Independent Note L / Note R settings
+- Independent L/R settings
 - Link toggle for syncing L/R delay times
 - Ping-Pong mode support
 
