@@ -5,6 +5,11 @@ A JUCE-based delay plugin developed in C++.
 
 <br>
 
+## 📚 Documentation
+**All DSP and implementation details are available in the `docs/` folder:**
+
+<br>
+
 ## 🎛️ Features
 
 🕒 **Delay Section**
