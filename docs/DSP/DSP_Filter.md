@@ -34,8 +34,6 @@ y[n] = b_0x[n] + b_1x[n-1] + b_2x[n-2] - a_1y[n-1] - a_2y[n-2]
 - Real-time changes to **cutoff** or **Q** require coefficient recalculation
 - Causes **clicks**, **zipper noise**, or **instability**, especially at high resonance
 
-<br>
-
 ### ✅ ZDF Advantage:
 
 - Feedback is resolved **instantly**, with **no delay buffers**
@@ -43,8 +41,9 @@ y[n] = b_0x[n] + b_1x[n-1] + b_2x[n-2] - a_1y[n-1] - a_2y[n-2]
 - **High-Q operation** remains artifact-free and numerically stable
 
 <br>
+<br>
 
-🔧 Optimization Note
+### 🔧 Optimization Note
 
 To reduce CPU load, the filter’s cutoff frequency is updated only when the value changes, avoiding expensive recalculations every sample.
 
@@ -56,3 +55,30 @@ if (inCutoff != mFilterHighCut.getCutoffFrequency())
     mFilterHighCut.setCutoffFrequency(inCutoff);
 ~~~
 This keeps performance efficient while maintaining smooth, stable filtering.
+
+<br>
+
+### Filter Placement
+
+~~~cpp
+void ModuleFeedback::processPush(const float inSampleL,
+                                 const float inSampleR,
+                                 const float inFeedbackAmount,
+                                 const float inLowCut,
+                                 const float inHighCut) noexcept
+{
+    const float outfeedbackL = inSampleL * inFeedbackAmount;
+    const float outfeedbackR = inSampleR * inFeedbackAmount;
+
+    const float outLowCutL = mFilter.processLowCut(0, outfeedbackL, inLowCut);
+    const float outLowCutR = mFilter.processLowCut(1, outfeedbackR, inLowCut);
+    
+    const float outHighCutL = mFilter.processHighCut(0, outLowCutL, inHighCut);
+    const float outHighCutR = mFilter.processHighCut(1, outLowCutR, inHighCut);
+    
+    mFeedbackL.pushSample(outHighCutL);
+    mFeedbackR.pushSample(outHighCutR);
+}
+~~~
+Filters are applied inside the feedback loop so that each repetition becomes increasingly band-limited.
+This prevents low-end buildup and high-frequency ringing over time.
