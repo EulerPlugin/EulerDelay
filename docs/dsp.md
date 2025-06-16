@@ -104,3 +104,8 @@ void ModulePingPong::process(const float inSampleL, const float inSampleR,
  }
 ~~~
 This logic dynamically redirects the feedback paths depending on the ping-pong state.
+
+| Ping-Pong | Left Output            | Right Output            |
+|-----------|------------------------|-------------------------|
+| `true`    | `panL + feedbackR`     | `panR + feedbackL`      |
+| `false`   | `panL + feedbackL`     | `panR + feedbackR`      |
