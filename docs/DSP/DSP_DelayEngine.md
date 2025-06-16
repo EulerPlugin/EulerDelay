@@ -43,12 +43,27 @@ Without interpolation:
   
 To solve this, we interpolate between buffer samples to approximate the correct value at a fractional index.
 
+<br>
+<br>
 
 🔁 Step-by-Step Explanation
-1. Write to Circular Buffer
+
+**1. Write to Circular Buffer**
    
 The incoming sample is stored at the current mIndexWriting position:
+
 ~~~cpp
 mBuffer.set(mIndexWriting, inSample);
+~~~
+
+<br>
+
+**2. Calculate Read Index**
+
+The delay time (in samples) is subtracted from the write index to determine where to read the delayed sample:
+~~~cpp
+float indexReading = mIndexWriting - inDelay;
+if (indexReading < 0.0f)
+    indexReading += mSizeBuffer;  // wrap-around if negative
 ~~~
 
