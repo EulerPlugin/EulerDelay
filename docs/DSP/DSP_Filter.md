@@ -9,14 +9,17 @@ It is placed inside the feedback loop to prevent excessive low-end buildup and h
 
 🔧 Implementation
 
-The filter module is implemented using juce::dsp::StateVariableTPTFilter<float>, which is a zero-delay feedback (ZDF) state variable filter offering superior stability and real-time control compared to traditional biquad filters.
+![image](https://github.com/user-attachments/assets/1233fddd-f2be-416d-b099-6fa7133dc35d)
+
+The filter module is implemented using juce::dsp::StateVariableTPTFilter<float>, which is a zero-delay feedback (ZDF) state variable filter offering superior stability and real-time control compared to traditional biquad filters(IIR, FIR).
+
+
+
+
 
 Two separate filters are used:
-
 mFilterLowCut: High-pass filter to remove low-frequency rumble
 mFilterHighCut: Low-pass filter to tame harsh high frequencies
-Both are configured and processed per channel using processSample():
-
 ~~~cpp
 mFilterLowCut.setType(juce::dsp::StateVariableTPTFilterType::highpass);
 mFilterHighCut.setType(juce::dsp::StateVariableTPTFilterType::lowpass);
