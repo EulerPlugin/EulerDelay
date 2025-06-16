@@ -26,3 +26,56 @@ mModuleFeedback.processPush(wetL, wetR,
                             ..., ...);
 ~~~
 This ensures that for every incoming sample, one feedback value is used and one is stored, creating a continuous sample-by-sample feedback loop.
+
+<br>
+
+The ModuleFeedback class manages left and right feedback lines independently:
+~~~cpp
+void ModuleFeedback::processPop(float& outSampleL, float& outSampleR) const noexcept
+{
+    outSampleL = mFeedbackL.popSample();
+    outSampleR = mFeedbackR.popSample();
+}
+
+void ModuleFeedback::processPush(const float inSampleL,
+                                 const float inSampleR,
+                                 const float inFeedbackAmount,
+                                 const float inLowCut,
+                                 const float inHighCut) noexcept
+{
+    const float outfeedbackL = inSampleL * inFeedbackAmount;
+    const float outfeedbackR = inSampleR * inFeedbackAmount;
+
+    // Filtering omitted
+    mFeedbackL.pushSample(outfeedbackL);
+    mFeedbackR.pushSample(outfeedbackR);
+}
+~~~
+
+<br>
+
+Each mFeedbackL and mFeedbackR instance is of type MyFeedback, a simple one-sample memory buffer:
+~~~cpp
+class MyFeedback
+{
+public:
+    void pushSample(const float inSample, const float inAmount) noexcept
+    {
+        mSampleFeedback = inSample * inAmount;
+    }
+
+    float popSample() const noexcept
+    {
+        return mSampleFeedback;
+    }
+
+    void reset() noexcept
+    {
+        mSampleFeedback = 0.0f;
+    }
+
+private:
+    float mSampleFeedback = 0.0f;
+};
+~~~
+This mechanism enables a minimal, real-time-safe feedback loop with per-channel independence.
