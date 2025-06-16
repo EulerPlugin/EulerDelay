@@ -7,7 +7,15 @@ A JUCE-based delay plugin developed in C++.
 
 ## 📚 Documentation
 **All DSP and implementation details are available in the `docs/` folder:**
+~~~cpp
 
+docs/                          # Documentation folder  
+├── dsp.md                     # DSP structure (delay, feedback, filters)  
+├── parameters.md              # Parameter handling & smoothing  
+├── gui.md                     # GUI layout & LookAndFeel  
+└── presets.md                 # Preset system & state saving  
+
+~~~
 <br>
 
 ## 🎛️ Features
