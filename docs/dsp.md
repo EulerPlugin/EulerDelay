@@ -109,3 +109,5 @@ This logic dynamically redirects the feedback paths depending on the ping-pong s
 |-----------|------------------------|-------------------------|
 | `true`    | `panL + feedbackR`     | `panR + feedbackL`      |
 | `false`   | `panL + feedbackL`     | `panR + feedbackR`      |
+
+<br>
