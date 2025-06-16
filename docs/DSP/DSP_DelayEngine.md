@@ -21,3 +21,34 @@ Why it's used in delay DSP:
 - Fixed memory size: perfect for time-based delays with a maximum delay time
 - Fast performance: read/write in constant time without dynamic memory allocation
 - Natural fit for time-based indexing: past samples can be accessed by computing readIndex = writeIndex - delaySamples, with wrap-around handling
+
+<br>
+<br>
+
+
+🎯 Why Is Interpolation Needed?
+
+<img src="https://github.com/user-attachments/assets/b4ac097b-cdef-4d00-9fc3-85f79cde52dc" width="300"/>
+
+Delay times are often non-integer when expressed in milliseconds or beats.
+
+Example:
+At 44.1 kHz, a 7.3 ms delay = 322.53 samples → fractional index.
+
+Without interpolation:
+
+- ❌ Artifacts (clicks, harsh edges)
+- ❌ Aliasing when modulating delay time
+- ❌ Poor quality for effects like flanging or chorus
+  
+To solve this, we interpolate between buffer samples to approximate the correct value at a fractional index.
+
+
+🔁 Step-by-Step Explanation
+1. Write to Circular Buffer
+   
+The incoming sample is stored at the current mIndexWriting position:
+~~~cpp
+mBuffer.set(mIndexWriting, inSample);
+~~~
+
