@@ -1,4 +1,6 @@
-![DelyDSP_BlockDiagram2](https://github.com/user-attachments/assets/85eaec03-887c-41e4-83b3-f7d02a1667db)
+
+<img width="1075" alt="블록다이어그램_필터까지" src="https://github.com/user-attachments/assets/50a4a271-cf2f-4edd-a683-417169e7ecc6" />
+
 The above block diagram illustrates the overall DSP architecture of this delay plugin. Each module is implemented as an independent class to ensure modularity and maintainability.
 
 <br>
