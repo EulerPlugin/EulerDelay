@@ -67,3 +67,21 @@ if (indexReading < 0.0f)
     indexReading += mSizeBuffer;  // wrap-around if negative
 ~~~
 
+<br>
+
+**3. Read Delayed Sample**
+
+Since indexReading can be fractional, interpolation is required:
+~~~cpp
+const float sampleDelayed = getSampleByHermit(indexReading);
+~~~
+
+<br>
+
+**4. Advance the Write Index (Wrap-Around)**
+
+The write index moves forward, and wraps to 0 when it reaches the buffer size:
+
+~~~cpp
+mIndexWriting = (mIndexWriting + 1) % mSizeBuffer;
+~~~
