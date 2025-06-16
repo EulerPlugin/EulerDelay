@@ -1,5 +1,7 @@
 ## 3. Feedback Module
 
+![image](https://github.com/user-attachments/assets/f03c105e-96b1-4f75-b28e-73890c391600)
+
 ### 🔷 Overview
 The Feedback Module manages the reinjection of the delayed signal back into the processing chain, allowing for echo and decay effects.
 Each channel (L/R) maintains its own feedback line using a simple buffer (MyFeedback), which holds one sample between iterations.
