@@ -1,4 +1,4 @@
-### 4. Stereo Link Implementation
+## 4. Stereo Link Implementation
 
 <br>
 
