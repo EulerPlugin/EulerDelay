@@ -1,12 +1,14 @@
 ### 4. Stereo Link Implementation
 
 <br>
+<br>
 
 🎯 What It Does
 
 The **Stereo Link** feature keeps Delay Time and Note parameters in sync between left and right channels. 
 When the toggle is enabled, modifying one side will automatically update the other to match it.
 
+<br>
 <br>
 
 🧱 1. Initial Setup & Listener Registration
@@ -35,6 +37,7 @@ if (inParamID == idLink && inValue == 1.0f)
 ~~~
 
 <br>
+<br>
 
 🔁 2. Synchronization Mechanism
 
@@ -48,3 +51,29 @@ mChannelMaster.store(masterNew);
 
 Then, the timer handles syncing.
 startTimer(30) causes timerCallback() to be called periodically from the **GUI thread**, which forces the slave to follow the master:
+
+~~~cpp
+void MyParameters::timerCallback()
+{
+    mFlagLinking.store(true); // Prevent recursive callback
+
+    const int master = mChannelMaster.load();
+
+    for (int i = 0; i < 2; ++i)
+    {
+        if (i != master)
+        {
+            *(mParamTime[i]) = mParamTime[master]->get();
+            *(mParamNote[i]) = mParamNote[master]->getIndex();
+        }
+    }
+
+    mFlagLinking.store(false);
+}
+~~~
+
+To prevent recursive parameterChanged() calls during this forced sync, we use a guard:
+
+~~~cpp
+if (mFlagLinking.load()) return;
+~~~
