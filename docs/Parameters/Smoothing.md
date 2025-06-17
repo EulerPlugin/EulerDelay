@@ -78,3 +78,29 @@ for (int i = 0;i < buffer.getNumSamples(); ++i)
   ...
 }
 ~~~
+
+- Placing update() outside the loop:
+  - Reduces redundant setTargetValue() and parameter reads
+  - Avoids repeated unit conversion
+- Only smoothen() runs per sample -> optimized real-time performance
+
+<br>
+
+🔹 Role of reset()
+
+~~~cpp
+void reset()
+{
+  mValueGain.setCurrentAndTargerValue(mValueGain.getTargetValue());
+}
+~~~
+
+- Used in two key contexts:
+    1. **On Plugin Load** - after prepare() is called
+    2. **During Playback** - when the host calls AudioProcessor::reset()
+       (e.g., transport starts, other processors resume)
+
+- Purpose:
+  - Instantly aligns current and target values
+  - Prevents initial audio artifacts or clicks
+  - Ensures all parameters are in a stable state without requiring time-based smoothing to settle
