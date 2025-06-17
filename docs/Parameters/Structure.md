@@ -51,3 +51,34 @@ static void castParameter(juce::AudioProcessorValueTreeState& inApvts,
 - jassert guards against invalid casts or missing parameters.
 - Avoids repeated getParameter() calls in real-time code → **direct pointer access is faster**
 
+<br>
+<br>
+
+🔹 3) Structural Benefits & Encapsulation
+
+✅ Centralized parameter access
+- All parameter logic is encapsulated within MyParameters.
+- GUI, DSP, and preset systems access parameters only through this class → **single entry point**
+
+  
+✅ Real-time optimized access
+- Conventional access via getParameter("id")->get() incurs lookup overhead
+- With pre-stored pointers (e.g., mParamGain->get()), access is **constant time** and **cache-friendly**
+  
+✅ Decoupling from GUI logic
+- GUI controls use AudioProcessorValueTreeState for automatic binding (SliderAttachment, etc.)
+- MyParameters handles only internal parameter logic, enabling **clear separation of concerns**
+
+<br>
+<br>
+
+🔹 4) Additional Architectural Notes
+
+📌 ID Abstraction
+- Parameter IDs are managed through symbolic constants (e.g., MyParamId::Output::Gain)
+- Prevents hardcoded strings and reduces risk during refactoring
+
+  
+📌 CPU Cache Optimization
+- Parameter pointers are stored as inline members, improving **memory locality**
+- In tight update loops, this layout helps reduce **cache misses**
