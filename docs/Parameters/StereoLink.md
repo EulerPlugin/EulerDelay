@@ -1,7 +1,6 @@
 ### 4. Stereo Link Implementation
 
 <br>
-<br>
 
 🎯 What It Does
 
@@ -41,7 +40,7 @@ if (inParamID == idLink && inValue == 1.0f)
 
 🔁 2. Synchronization Mechanism
 
-Once the Link is on, any change to a time or note knob (L or R) triggers parameterChanged().
+Once the Link is on, any change to a time or note knob (L or R) triggers ```parameterChanged()```.
 We determine which side was touched and mark it as the master:
 
 ~~~cpp
@@ -50,7 +49,7 @@ mChannelMaster.store(masterNew);
 ~~~
 
 Then, the timer handles syncing.
-startTimer(30) causes timerCallback() to be called periodically from the **GUI thread**, which forces the slave to follow the master:
+```startTimer(30)``` causes ```timerCallback()``` to be called periodically from the **GUI thread**, which forces the slave to follow the master:
 
 ~~~cpp
 void MyParameters::timerCallback()
@@ -72,8 +71,39 @@ void MyParameters::timerCallback()
 }
 ~~~
 
-To prevent recursive parameterChanged() calls during this forced sync, we use a guard:
+To prevent recursive ```parameterChanged()``` calls during this forced sync, we use a guard:
 
 ~~~cpp
 if (mFlagLinking.load()) return;
 ~~~
+
+<br>
+
+--------
+
+⛔ When Link Is Turned Off
+
+When the user disables the Link toggle:
+
+- The timer stops
+- All temporary listeners are removed
+
+~~~cpp
+stopTimer();
+
+mApvts.removeParameterListener(idTimeL, this);
+mApvts.removeParameterListener(idTimeR, this);
+mApvts.removeParameterListener(idNoteL, this);
+mApvts.removeParameterListener(idNoteR, this);
+~~~
+
+<br>
+<br>
+
+
+🧵 Threading Considerations
+
+- ```timerCallback()``` runs on the **GUI (message) thread**, not the audio thread.
+- To safely communicate with the audio thread, we use ```std::atomic``` for shared flags like ```mChannelMaster``` and ```mFlagLinking```.
+
+> This architecture avoids CPU spikes and glitchy behavior in the audio thread by offloading all syncing to the GUI thread.
