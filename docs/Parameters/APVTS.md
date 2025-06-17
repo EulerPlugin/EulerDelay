@@ -1,4 +1,4 @@
-### 1. Why AudioProcessorValueTreeState
+## 1. Why AudioProcessorValueTreeState
 
 This plugin uses JUCE’s AudioProcessorValueTreeState (APVTS) to manage parameters.
 This is not a trivial choice, but a deliberate design decision based on real-time safety, structural clarity, and long-term maintainability.
