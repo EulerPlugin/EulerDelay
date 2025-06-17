@@ -1,6 +1,5 @@
-### 2. Parameter Initialization & Structure
+## 2. Parameter Initialization & Structure
 
-<br>
 <br>
 
 🎯 Design Objective
