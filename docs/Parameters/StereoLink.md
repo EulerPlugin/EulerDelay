@@ -33,3 +33,18 @@ if (inParamID == idLink && inValue == 1.0f)
     startTimer(30); // Runs timerCallback ~30 times per second
 }
 ~~~
+
+<br>
+
+🔁 2. Synchronization Mechanism
+
+Once the Link is on, any change to a time or note knob (L or R) triggers parameterChanged().
+We determine which side was touched and mark it as the master:
+
+~~~cpp
+const int masterNew = (inParamID == idTimeR || inParamID == idNoteR) ? 1 : 0;
+mChannelMaster.store(masterNew);
+~~~
+
+Then, the timer handles syncing.
+startTimer(30) causes timerCallback() to be called periodically from the **GUI thread**, which forces the slave to follow the master:
