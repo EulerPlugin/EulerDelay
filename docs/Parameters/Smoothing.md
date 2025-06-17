@@ -1,4 +1,4 @@
-### 3. Parameter Smoothing Structure
+## 3. Parameter Smoothing Structure
 
 <br>
 
