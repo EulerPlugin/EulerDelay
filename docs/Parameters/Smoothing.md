@@ -62,3 +62,19 @@ All parameters are converted and assigned via setTargetValue() in a single batch
 - ms -> sec -> sampled : ms * 0.001f * sampleRate
 - % -> normalized : value * 0.01f
 - Hz : used directly
+
+<br>
+
+🔹 Optimization : update() vs smoothen()
+
+~~~cpp
+// Called once per block
+mParameters.update(bpm);
+
+// Called per sample
+for (int i = 0;i < buffer.getNumSamples(); ++i)
+{
+  mParameters.smoothen();
+  ...
+}
+~~~
