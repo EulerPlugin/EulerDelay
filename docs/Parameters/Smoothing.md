@@ -50,3 +50,15 @@ float smoothedGain = mValueGain.getNextValue();
 // Reset
 mValueGain.setCurrentAndTargetValue(mValueGain.getTargetValue());
 ~~~
+
+<br>
+
+🔹 Unit Conversion & Target Assignment in update()
+
+Myparameters::update(double bpm) is called once per audio block, outside the processing loop.
+All parameters are converted and assigned via setTargetValue() in a single batch:
+
+- dB -> Linear : juce::Decibels::decibelsToGain()
+- ms -> sec -> sampled : ms * 0.001f * sampleRate
+- % -> normalized : value * 0.01f
+- Hz : used directly
