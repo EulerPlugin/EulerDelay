@@ -50,4 +50,24 @@ mLabelMix.setTopLeftPosition(xLabelMix, yLabelMix);
 -> This provides **pixel-level precision**, centralized layout control, and consistent spacing
 across panels.
 
+<br>
+<br>
 
+**🔹 3. Manual Panel Placement in Editor**
+
+All panels are manually created and positioned in the editor class (```EulerDelayAudioProcessorEditor```) using ```setSize()``` and ```setTopLeftPosition()```
+
+~~~cpp
+mPanelControl.setTopLeftPosition(0, MySize::GUI::Header::Height);
+mPanelDelay.setTopLeftPosition(mPanelControl.getRight(), mPanelControl.getY());
+~~~
+
+Certain UI states - like PingPong mode - dynamically affect panel layout or visibillity:
+
+~~~cpp
+mPanelDelay.setSize(MySize::Panel::Delay::Width,
+                    inButton->getToggleState() ? MySize::Panel::Delay::Height / 2
+                                               : MySize::Panel::Delay::Height);
+~~~
+-> This approach allows full layout control without layout managers, and supports
+**state - driven UI tranformations**.
