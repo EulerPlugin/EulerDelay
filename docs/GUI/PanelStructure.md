@@ -1,0 +1,38 @@
+## ✅ 2. Panel Structure
+
+The GUI is composed of modular panels that all inherit from a common base class, ```PanelBase```.
+Each panel is responsible for a specific function, but shares a consistent layout system and visual frame.
+
+<br>
+<br>
+
+**🔹 1. ```PanelBase``` and ```GroupComponent```-Based Design**
+
+All panels inherit from ```PanelBase```, which itself is based on ```juce::GroupComponent```.
+```GroupComponent``` provides a **visual frame with a title**, and the title is centered using:
+
+
+<img width="479" alt="image" src="https://github.com/user-attachments/assets/31b55820-5e4c-4d62-b867-8ed9537f060e" />
+
+
+~~~cpp
+PanelBase::PanelBase(const juce::String& inTitle, EulerDelayAudioProcessor& inAudioprocessor)
+: juce::GroupComponent(inTitle, inTitle), mAudioprocessor(inAudioprocessor)
+{
+    setTextLabelPosition(juce::Justification::horizontallyCentred);
+}
+~~~
+
+This ensures that every panel shares a consistent frame structure, while allowing each subclass
+to define its own internal controls like buttons or knobs.
+
+<br>
+<br>
+
+
+**🔹 2. Static Layout via Constants**
+
+Each panel manually calculates component size and position using layout constants defined in the ```Mysize```
+namespace. 
+
+
