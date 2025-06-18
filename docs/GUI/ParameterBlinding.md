@@ -7,7 +7,7 @@ its class. Additionally, button clink behavior is split between **internal visua
 
 <br>
 
-**🔹 1. MyRotaryKnob : Internal Slider–Parameter Binding**
+**🔹 1. ```MyRotaryKnob``` : Internal Slider–Parameter Binding**
 
 Class : ```MyrotaryKnob```
 
@@ -31,7 +31,7 @@ MyRotaryKnob::MyRotaryKnob(juce::AudioProcessorValueTreeState& inApvts,
 <br>
 
 
-**🔹 2. MyParamToggleButton : Button Binding and Visual State**
+**🔹 2. ```MyParamToggleButton``` : Button Binding and Visual State**
 
 Class : ```MyParamToggleButton```
 
@@ -62,7 +62,7 @@ MyParamToggleButton::MyParamToggleButton(juce::AudioProcessorValueTreeState& inA
 <br>
 
 
-**🔹 3. PanelDelay::buttonClicked(): Functional UI Logic**
+**🔹 3. ```PanelDelay::buttonClicked()``` : Functional UI Logic**
 
 Class : ```PanelDelay```
 
@@ -83,4 +83,57 @@ void PanelDelay::buttonClicked(juce::Button* inButton)
 }
 ~~~
 
+- This function handels UI logic triggered by button toggles
+- It **shows/hides** Time or Note knobs depending on mode
+- It also **updates label text** to match mono/stereo mode
 
+<br>
+<br>
+
+
+**🔹 4. ```setVisibleLaveAndKnobs()``` Logic**
+
+Still in ```PanelDelay```:
+
+~~~cpp
+void PanelDelay::setVisibleLaveAndKnobs(const bool inTempo, const bool inPingPong)
+{
+    for (int i = 0; i < 2; ++i)
+    {
+        mKnobTime[i].setVisible(i == 0 ? !inTempo : !inTempo && !inPingPong);
+        mKnobNote[i].setVisible(i == 0 ?  inTempo :  inTempo && !inPingPong);
+    }
+}
+~~~
+
+| Mode        | Left (L) Visible  | Right (R) Visible        |
+| ----------- | ----------------- | ------------------------ |
+| Tempo OFF   | Time L            | Time R (if not PingPong) |
+| Tempo ON    | Note L            | Note R (if not PingPong) |
+| PingPong ON | Only Left visible | Right hidden completely  |
+
+
+<br>
+<br>
+
+**🔹 5. ```EulerDelayAudioProcessorEditor::buttonClicked()``` : Layout Changes**
+
+Class : ```EulerDelayAudioProcessorEditor```
+
+~~~cpp
+void EulerDelayAudioProcessorEditor::buttonClicked(juce::Button* inButton)
+{
+    switch (inButton->getCommandID())
+    {
+        case MyHelper::CmdIdButtons::PingPong:
+            mPanelDelay.setSize(...);
+            resized();
+            mPanelPingPong.setVisible(mButtonPingPong.getToggleState());
+            break;
+    }
+}
+~~~
+
+- When PingPong is toggled, the Delay panel height is halved
+- PingPong panel is shown or hidden
+- ```resized()``` triggers full UI layout recalculation
