@@ -137,3 +137,9 @@ void EulerDelayAudioProcessorEditor::buttonClicked(juce::Button* inButton)
 - When PingPong is toggled, the Delay panel height is halved
 - PingPong panel is shown or hidden
 - ```resized()``` triggers full UI layout recalculation
+
+<br>
+<br>
+
+![converted_output](https://github.com/user-attachments/assets/692e832c-08e5-4730-8e31-c19b02013f41)
+
