@@ -72,3 +72,44 @@ juce::Font MyLookAndFeel::getPopupMenuFont()
 }
 ~~~
 -> Ensures consistent typeface across labels and popups
+
+<br>
+<br>
+
+**🔹 4. Centralized Color Management**
+
+~~~cpp
+// Class: MyLookAndFeel
+// Function: Constructor
+setColour(juce::Slider::rotarySliderFillColourId, MyColors::RotaryKnob::trackActive);
+setColour(juce::Label::textColourId, MyColors::RotaryKnob::label);
+setColour(juce::TextButton::textColourOnId, MyColors::Button::textToggled);
+...
+~~~
+
+- All UI elements referene the ```MyColors``` namespace
+- Centralized style system improves maintainabillity
+
+
+<br>
+<br>
+
+
+**🔹 5. Rotary Knob Custom Drawing**
+
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/5bee16e8-5f5b-4a54-b90d-44fb32dd1492" />
+
+~~~cpp
+// Class: MyLookAndFeel
+// Function: drawRotarySlider()
+void MyLookAndFeel::drawRotarySlider(...)
+~~~
+
+- Draw order:
+  1. Outer bounds
+  2. Inner knob with drop shadow
+  3. Gradient fill
+  4. Background ring
+  5. Value track
+  6. Dial indicator
+
