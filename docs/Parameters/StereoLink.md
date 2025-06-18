@@ -107,3 +107,9 @@ mApvts.removeParameterListener(idNoteR, this);
 - To safely communicate with the audio thread, we use ```std::atomic``` for shared flags like ```mChannelMaster``` and ```mFlagLinking```.
 
 > This architecture avoids CPU spikes and glitchy behavior in the audio thread by offloading all syncing to the GUI thread.
+
+<br>
+<br>
+
+<img src = "https://github.com/user-attachments/assets/4fa4d366-91a5-4d37-9276-3e316636f53c" width = "250"/>
+
