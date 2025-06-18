@@ -23,6 +23,10 @@ This modular approach enables **independent development and maintenance** of eac
 <br>
 <br>
 <br>
+<br>
+<br>
+
+
 
 **🔹 2. State-Based Rendering**
 
@@ -31,8 +35,11 @@ Certain UI elements are shown or hidden depending on toggle states:
 - When PingPong is enabled, the right-side delay knobs are hidden
 - When Tempo mode is enabled, Note Knobs are shown instead of Time knobs.
 
-
 ![converted_output](https://github.com/user-attachments/assets/0994fc69-e5bf-4342-a118-d9cfc3051a3d)
+
+This dynamic rendering is handeled via methods like ```buttonClicked()``` and ```setVisibleLabelAndKnobs()```
+
+-> This allows **UI simplification without feature compromise,** enabling multiple constrol modes within a single panel.
 
 <br>
 <br>
