@@ -109,3 +109,9 @@ void MyParameters::smoothen() noexcept
 
 - Smooth transitions between delay times using ```LinearSmoothedValue```.
 - No recalculation inside the audio sample loop → safe for real-time DSP.
+
+<br>
+<br>
+
+<img src="https://github.com/user-attachments/assets/797c6f29-9bdb-4869-a50b-a844efbbe5c3" width="250"/>
+
