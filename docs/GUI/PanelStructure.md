@@ -35,4 +35,19 @@ to define its own internal controls like buttons or knobs.
 Each panel manually calculates component size and position using layout constants defined in the ```Mysize```
 namespace. 
 
+~~~cpp
+mLabelMix.setSize(MySize::RotaryKnob::Width, MySize::Label::Height);
+mKnobMix.setSize(MySize::RotaryKnob::Width, MySize::RotaryKnob::Height);
+~~~
+
+All layout logic is placed inside each panel's ```resized()``` method. For example:
+
+~~~cpp
+const int xLabelMix = boundlocal.getX() + MySize::Padding::Width;
+const int yLabelMix = boundlocal.getY() + MySize::Padding::Top::Height;
+mLabelMix.setTopLeftPosition(xLabelMix, yLabelMix);
+~~~
+-> This provides **pixel-level precision**, centralized layout control, and consistent spacing
+across panels.
+
 
