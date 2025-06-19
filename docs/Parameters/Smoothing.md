@@ -2,14 +2,14 @@
 
 <br>
 
-🎯 Purpose
+### 🎯 Purpose
 
 In real-time DSP, abrupt parameter changes can cause audio artifacts such as clicks or pops.
 To prevent this, juce::LinearSmoothedValue is Used to interpolate parameter trasitions over time.
 
 <br>
 
-🔹 Structure Overview
+### 🔹 Structure Overview
 
 - Smoothed Parameters:
 
@@ -31,7 +31,7 @@ To prevent this, juce::LinearSmoothedValue is Used to interpolate parameter tras
 
 <br>
 
-🔹 Example: Gain Parameter
+### 🔹 Example: Gain Parameter
 
 ~~~cpp
 // Declaration
@@ -53,7 +53,7 @@ mValueGain.setCurrentAndTargetValue(mValueGain.getTargetValue());
 
 <br>
 
-🔹 Unit Conversion & Target Assignment in update()
+### 🔹 Unit Conversion & Target Assignment in update()
 
 Myparameters::update(double bpm) is called once per audio block, outside the processing loop.
 
@@ -66,7 +66,7 @@ All parameters are converted and assigned via setTargetValue() in a single batch
 
 <br>
 
-🔹 Optimization : update() vs smoothen()
+### 🔹 Optimization : update() vs smoothen()
 
 ~~~cpp
 // Called once per block
@@ -87,7 +87,7 @@ for (int i = 0;i < buffer.getNumSamples(); ++i)
 
 <br>
 
-🔹 Role of reset()
+### 🔹 Role of reset()
 
 ~~~cpp
 void reset()
