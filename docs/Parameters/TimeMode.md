@@ -9,7 +9,7 @@ This delay plugin allows users to set delay time in two different ways:
 <br>
 <br>
 
-🔹 Step 1. Tempo Parameter Definition
+### 🔹 Step 1. Tempo Parameter Definition
 
 ~~~cpp
 layout.add(std::make_unique<AudioParameterBool>(
@@ -23,7 +23,7 @@ layout.add(std::make_unique<AudioParameterBool>(
 <br>
 
 
-🔹 Step 2. Conditional Time Calculation (inside ```update()```)
+### 🔹 Step 2. Conditional Time Calculation (inside ```update()```)
 
 ~~~cpp
 const bool tempo = mParamTemopo->get();
@@ -47,7 +47,7 @@ for (int i = 0; i < 2; ++i)
 <br>
 <br>
 
-🔹 Step 3. ```getTimeByNote()``` Calculation Logic
+### 🔹 Step 3. ```getTimeByNote()``` Calculation Logic
 
 ~~~cpp
 double MyParameters::getTimeByNote(const double inBpm, const int inNote) const noexcept
@@ -81,7 +81,7 @@ double MyParameters::getTimeByNote(const double inBpm, const int inNote) const n
 <br>
 <br>
 
-🔹 Step 4. Execution Timing
+### 🔹 Step 4. Execution Timing
 
 ~~~cpp
 void EulerDelayAudioProcessor::processBlock(...)
@@ -97,7 +97,7 @@ void EulerDelayAudioProcessor::processBlock(...)
 <br>
 <br>
 
-🔹 Step 5. Smoothing in the Sample Loop
+### 🔹 Step 5. Smoothing in the Sample Loop
 
 ~~~cpp
 void MyParameters::smoothen() noexcept
