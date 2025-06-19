@@ -1,4 +1,4 @@
-## ✅ [3] Parameter Binding
+## ✅ 3. Parameter Binding
 
 This plugin uses internal attachments to bind parameters to GUI components.
 Each custom component manages its own connection to the ```AudioProcessorValueTreeState``` inside
@@ -7,7 +7,7 @@ its class. Additionally, button clink behavior is split between **internal visua
 
 <br>
 
-**🔹 1. ```MyRotaryKnob``` : Internal Slider–Parameter Binding**
+### 🔹 1. ```MyRotaryKnob``` : Internal Slider–Parameter Binding
 
 Class : ```MyrotaryKnob```
 
@@ -31,7 +31,7 @@ MyRotaryKnob::MyRotaryKnob(juce::AudioProcessorValueTreeState& inApvts,
 <br>
 
 
-**🔹 2. ```MyParamToggleButton``` : Button Binding and Visual State**
+### 🔹 2. ```MyParamToggleButton``` : Button Binding and Visual State
 
 Class : ```MyParamToggleButton```
 
@@ -62,7 +62,7 @@ MyParamToggleButton::MyParamToggleButton(juce::AudioProcessorValueTreeState& inA
 <br>
 
 
-**🔹 3. ```PanelDelay::buttonClicked()``` : Functional UI Logic**
+### 🔹 3. ```PanelDelay::buttonClicked()``` : Functional UI Logic
 
 Class : ```PanelDelay```
 
@@ -91,7 +91,7 @@ void PanelDelay::buttonClicked(juce::Button* inButton)
 <br>
 
 
-**🔹 4. ```setVisibleLaveAndKnobs()``` Logic**
+### 🔹 4. ```setVisibleLaveAndKnobs()``` Logic
 
 Still in ```PanelDelay```:
 
@@ -116,7 +116,7 @@ void PanelDelay::setVisibleLaveAndKnobs(const bool inTempo, const bool inPingPon
 <br>
 <br>
 
-**🔹 5. ```EulerDelayAudioProcessorEditor::buttonClicked()``` : Layout Changes**
+### 🔹 5. ```EulerDelayAudioProcessorEditor::buttonClicked()``` : Layout Changes
 
 Class : ```EulerDelayAudioProcessorEditor```
 
