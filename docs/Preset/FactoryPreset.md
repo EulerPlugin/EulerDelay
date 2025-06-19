@@ -10,7 +10,6 @@ the processor without relying on any external files.
 It’s ideal for testing, resetting, or providing reliable default states.
 
 <br>
-<br>
 
 ### **⚙️ Architecture & Flow**
 
@@ -110,4 +109,48 @@ void MyPresetManager::resetFactoryPreset()
 ✅ This is executed once when the plugin starts.
 The hardcoded presets are registered into memory.
 These become the visible choices in the ComboBox.
+
+<br>
+<br>
+
+-------
+
+<br>
+
+### **✅ Advantages of This Structure**
+
+**🔹 1. Clear responsibility and flow**
+
+Each component only handles its own logic:
+
+- ComboBox → user input
+- PresetManager → data selection
+- MyParameters → parameter application
+               → Easy to maintain and debug
+
+
+  <br>
+
+**🔹 2. Fast initialization without file I/O**
+
+Great for testing or resetting the plugin without loading external files.
+
+<br>
+
+**🔹 3. Safe direct parameter access**
+
+No string parsing, no file loading, no ambiguity.
+Direct index-based access minimizes bugs and makes debugging easier.
+
+<br>
+
+**🔹 4. Easily extensible**
+
+This structure can be reused to integrate with:
+
+- XML preset loading
+- Host state saving (```getStateInformation, setStateInformation```)
+- Factory-to-User preset conversion
+
+
 
