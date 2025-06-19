@@ -5,7 +5,7 @@ This is not a trivial choice, but a deliberate design decision based on real-tim
 
 <br>
 
-🔹 1) Real-Time Automation & Host Synchronization
+### 🔹 1) Real-Time Automation & Host Synchronization
 
 **Reason:**
 
@@ -24,7 +24,7 @@ float current = mValueHighCut.getCurrentValue();      // read in audio thread
 <br>
 <br>
 
-🔹 2) Consistent State Save/Recall
+### 🔹 2) Consistent State Save/Recall
 
 **Reason:**
 
@@ -42,7 +42,7 @@ mApvts.replaceState(state);                     // loading
 <br>
 <br>
 
-🔹 3) Efficient GUI Binding
+### 🔹 3) Efficient GUI Binding
 
 **Reason:**
 
@@ -61,7 +61,7 @@ castParameter(mApvts, MyParamId::Output::Gain, mParamGain);
 <br>
 <br>
 
-🔹 4) Custom String Representation
+### 🔹 4) Custom String Representation
 
 **Reason:**
 
