@@ -2,7 +2,7 @@
 
 <br>
 
-🎯 Design Objective
+### 🎯 Design Objective
 
 All parameters are initialized through AudioProcessorValueTreeState (APVTS) using a single layout definition.
 Within the MyParameters class, each parameter is explicitly cast and stored as a pointer for efficient access.
@@ -11,7 +11,7 @@ This architecture enables **real-time safety, modular separation, and high-perfo
 <br>
 <br>
 
-🔹 1) Parameter Creation – initparameterLayout()
+### 🔹 1) Parameter Creation – initparameterLayout()
 
 - All parameters are created via **std::make_unique <<juce::AudioParameter*>>**
 - UI display formatting (e.g., dB, %, ms, Hz) is abstracted using **withStringFromValueFunction()** and related methods:
@@ -25,14 +25,14 @@ layout.add(std::make_unique<juce::AudioParameterFloat>(
         .withStringFromValueFunction(stringFromDecibels)));
 ~~~
 
-✅ Advantages
+### ✅ Advantages
 - Unit formatting is preprocessed at construction time → **no runtime conversion overhead**
 - UI-friendly display is separated from internal floating-point logic
 
 <br>
 <br>
 
-🔹 2) Parameter Referencing – castParameter()
+### 🔹 2) Parameter Referencing – castParameter()
 
 ~~~cpp
 template <typename T>
@@ -45,7 +45,7 @@ static void castParameter(juce::AudioProcessorValueTreeState& inApvts,
 ~~~
 - During class construction, each parameter is cast using its ID and stored in a member pointer (e.g., mParamGain, mParamTime[2]).
 
-✅ Advantages
+### ✅ Advantages
 
 - jassert guards against invalid casts or missing parameters.
 - Avoids repeated getParameter() calls in real-time code → **direct pointer access is faster**
@@ -53,7 +53,7 @@ static void castParameter(juce::AudioProcessorValueTreeState& inApvts,
 <br>
 <br>
 
-🔹 3) Structural Benefits & Encapsulation
+### 🔹 3) Structural Benefits & Encapsulation
 
 ✅ Centralized parameter access
 - All parameter logic is encapsulated within MyParameters.
@@ -71,7 +71,7 @@ static void castParameter(juce::AudioProcessorValueTreeState& inApvts,
 <br>
 <br>
 
-🔹 4) Additional Architectural Notes
+### 🔹 4) Additional Architectural Notes
 
 📌 ID Abstraction
 - Parameter IDs are managed through symbolic constants (e.g., MyParamId::Output::Gain)
