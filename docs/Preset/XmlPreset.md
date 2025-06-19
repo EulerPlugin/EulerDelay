@@ -16,7 +16,7 @@ XML Presets are **user-defined, persistent,** and editable outside the plugin.
 
 ~~~cpp
 EulerDelayAudioProcessorEditor
-└── mPanelDelay
+└── mPanelControl
     └── MyPresetComboBox
 ~~~
 
