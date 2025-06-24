@@ -1,4 +1,6 @@
-<img width="610" alt="image" src="https://github.com/user-attachments/assets/be8cc8ee-c568-489a-9888-a4a59675596a" />
+https://github.com/user-attachments/assets/581d852f-8d63-471f-80a1-2d97df4a2f69
+
+
 
 # EulerDelay
 A JUCE-based delay plugin developed in C++.
