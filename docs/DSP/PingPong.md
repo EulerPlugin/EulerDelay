@@ -1,6 +1,6 @@
 ## 1. Pan & Ping-Pong Module
 
-### 🔷 Overview
+###  Overview
 The following DSP flow is handled in real-time inside the `processBlock()` function:
 
 ~~~cpp
@@ -22,7 +22,7 @@ This indicates that the Ping-Pong module is part of the core per-sample audio pr
 
 <br>
 
-### 🎧 Why Use Equal-Power Panning Law?
+###  Why Use Equal-Power Panning Law?
 <img width="406" alt="image" src="https://github.com/user-attachments/assets/01217271-bda1-4ff8-8b66-0c6218ff79f0" />
 
 Human perception of loudness is based not on raw amplitude, but on **power**, which is proportional to the square of amplitude.  
@@ -71,7 +71,7 @@ void MyPanning::process(const float inSampleL, const float inSampleR,
 ~~~
 <br>
 
-### 🔁 Ping-Pong Logic
+###  Ping-Pong Logic
 
 The ping-pong effect swaps feedback paths between the channels to create a bouncing stereo effect.
 
