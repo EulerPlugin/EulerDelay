@@ -1,11 +1,11 @@
 ## 2. Delay Engine
 
-### 🔷 Overview
+###  Overview
 The Delay Engine handles per-channel delay processing using a **circular buffer** and supports fractional delay times through **Hermite interpolation.** Each channel (L/R) is processed independently via the ModuleDelay class, which internally uses the MyDelay class.
 
 <br>
 
-### 🌀 Why Circular Buffer?
+###  Why Circular Buffer?
 
 ![image](https://github.com/user-attachments/assets/2465bb49-4543-4788-be7b-b46365a9abe1)
 
@@ -26,7 +26,7 @@ Why it's used in delay DSP:
 <br>
 
 
-### 🎯 Why Is Interpolation Needed?
+###  Why Is Interpolation Needed?
 
 <img src="https://github.com/user-attachments/assets/b4ac097b-cdef-4d00-9fc3-85f79cde52dc" width="300"/>
 
@@ -46,7 +46,7 @@ To solve this, we interpolate between buffer samples to approximate the correct 
 <br>
 <br>
 
-### 🔁 Step-by-Step Explanation
+###  Step-by-Step Explanation
 
 **1. Write to Circular Buffer**
    
