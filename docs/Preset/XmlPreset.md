@@ -1,7 +1,7 @@
 ## XML Preset System
 
 
-### ** Introduction**
+###  Introduction
 
 The XML Preset system allows users to **save and load parameter states 
 as XML files.**
@@ -10,7 +10,7 @@ XML Presets are **user-defined, persistent,** and editable outside the plugin.
 
 <br>
 
-### ** System Architecture**
+###  System Architecture
 
 **1. UI Hierarchy (Top-Down)**
 
@@ -22,7 +22,7 @@ EulerDelayAudioProcessorEditor
 
 <br>
 
-**2. Execution Flow (Bottom-Up**
+**2. Execution Flow (Bottom-Up)**
 
 ~~~cpp
 User selects "Save" or "Load" in ComboBox
@@ -40,7 +40,7 @@ MyParameters ↔ juce::ValueTree ↔ APVTS
 
 <br>
 
-### ** Runtime Flow**
+###  Runtime Flow
 
 **1. ComboBox triggers file dialog and action**
 
@@ -148,7 +148,7 @@ void MyPresetManager::loadXmlPreset(const juce::File& inFileXml) noexcept
 <br>
 
 
-### ** Parameter ↔ State Helpers**
+###  Parameter ↔ State Helpers
 
 ~~~cpp
 // MyParameters::getStateCopied()
@@ -179,7 +179,7 @@ They ensure structural integrity and type safety during import/export.
 <br>
 
 
-### ** Advantages of This Structure**
+###  Advantages of This Structure
 
 **1. Persistent, user-defined presets**
 - Users can save their own parameter configurations to .xml
