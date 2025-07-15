@@ -2,7 +2,7 @@
 
 <br>
 
-### 📌 **Introduction**
+###  **Introduction**
 
 The Factory Preset system provides a set of hardcoded parameter values directly 
 embedded into the plugin.Users can select from these presets using a combo box, instantly applying them to 
@@ -11,7 +11,7 @@ It’s ideal for testing, resetting, or providing reliable default states.
 
 <br>
 
-### **⚙️ Architecture & Flow**
+### **⚙ Architecture & Flow**
 
 **1. Component Hierarchy (Top-Down)**
 
@@ -34,7 +34,7 @@ MyPresetComboBox → MyPresetManager → MyParameters → APVTS
 <br>
 <br>
 
-### **🔁 Runtime Flow**
+### ** Runtime Flow**
 
 **1. User selects a preset from ComboBox**
 
@@ -45,11 +45,11 @@ onChange = [this]()
     const int id = getSelectedId();
     if (id == 0) return;
 
-    mPresetManager.setFactoryPreset(id - 1);  // 🔥 Triggers preset application
+    mPresetManager.setFactoryPreset(id - 1);  //  Triggers preset application
 };
 ~~~
 
-✅ The selected index is passed to the preset manager.
+ The selected index is passed to the preset manager.
 ```id - 1``` maps the ComboBox item to the correct internal preset array index.
 This line is critical — without it, nothing is applied.
 
@@ -67,7 +67,7 @@ void MyPresetManager::setFactoryPreset(int inIndex) noexcept
 }
 ~~~
 
-✅ The selected preset is retrieved from the array and passed to ```MyParameters``` for application.
+ The selected preset is retrieved from the array and passed to ```MyParameters``` for application.
 PresetManager itself doesn’t touch parameter values — it delegates.
 
 <br>
@@ -87,7 +87,7 @@ void MyParameters::setParamsByFactoryPreset(const FactoryPreset& inPreset) noexc
 }
 ~~~
 
-✅ The values from the selected preset are directly assigned to AudioProcessorValueTreeState parameters.
+ The values from the selected preset are directly assigned to AudioProcessorValueTreeState parameters.
 This happens immediately with no smoothing or delay.
 All key parameters (Delay Time L/R, Feedback, Mix, Gain) are included.
 
@@ -106,7 +106,7 @@ void MyPresetManager::resetFactoryPreset()
 }
 ~~~
 
-✅ This is executed once when the plugin starts.
+ This is executed once when the plugin starts.
 The hardcoded presets are registered into memory.
 These become the visible choices in the ComboBox.
 
@@ -117,9 +117,9 @@ These become the visible choices in the ComboBox.
 
 <br>
 
-### **✅ Advantages of This Structure**
+### ** Advantages of This Structure**
 
-**🔹 1. Clear responsibility and flow**
+** 1. Clear responsibility and flow **
 
 Each component only handles its own logic:
 
