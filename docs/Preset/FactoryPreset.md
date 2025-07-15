@@ -11,9 +11,9 @@ It’s ideal for testing, resetting, or providing reliable default states.
 
 <br>
 
-### **⚙ Architecture & Flow**
+###  Architecture & Flow 
 
-**1. Component Hierarchy (Top-Down)**
+1. Component Hierarchy (Top-Down)
 
 ~~~cpp
 EulerDelayAudioProcessorEditor
@@ -23,7 +23,7 @@ EulerDelayAudioProcessorEditor
 
 <br>
 
-**2. Execution Flow (Bottom-Up)**
+2. Execution Flow (Bottom-Up)
 
 ~~~cpp
 User clicks ComboBox
@@ -34,7 +34,7 @@ MyPresetComboBox → MyPresetManager → MyParameters → APVTS
 <br>
 <br>
 
-### ** Runtime Flow**
+###  Runtime Flow
 
 **1. User selects a preset from ComboBox**
 
@@ -117,9 +117,9 @@ These become the visible choices in the ComboBox.
 
 <br>
 
-### ** Advantages of This Structure**
+###  Advantages of This Structure
 
-** 1. Clear responsibility and flow **
+1. Clear responsibility and flow 
 
 Each component only handles its own logic:
 
@@ -131,20 +131,20 @@ Each component only handles its own logic:
 
   <br>
 
-**🔹 2. Fast initialization without file I/O**
+2. Fast initialization without file I/O
 
 Great for testing or resetting the plugin without loading external files.
 
 <br>
 
-**🔹 3. Safe direct parameter access**
+3. Safe direct parameter access
 
 No string parsing, no file loading, no ambiguity.
 Direct index-based access minimizes bugs and makes debugging easier.
 
 <br>
 
-**🔹 4. Easily extensible**
+4. Easily extensible
 
 This structure can be reused to integrate with:
 
