@@ -8,7 +8,7 @@ The above block diagram illustrates the overall DSP architecture of this delay p
 <br>
 
 
-#### 🔁 1. Pan & Ping-Pong Module -> 🕒 2. Delay Engine -> 🔄 3. Feedback Module -> ♦️4. Filter Section
+####  1. Pan & Ping-Pong Module ->  2. Delay Engine ->  3. Feedback Module -> 4. Filter Section
 
 <br>
 
