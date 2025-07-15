@@ -1,4 +1,4 @@
-## ✅ 2. Panel Structure
+##  2. Panel Structure
 
 The GUI is composed of modular panels that all inherit from a common base class, ```PanelBase```.
 Each panel is responsible for a specific function, but shares a consistent layout system and visual frame.
@@ -6,7 +6,7 @@ Each panel is responsible for a specific function, but shares a consistent layou
 <br>
 <br>
 
-### 🔹 1. ```PanelBase``` and ```GroupComponent```-Based Design
+###  1. ```PanelBase``` and ```GroupComponent```-Based Design
 
 All panels inherit from ```PanelBase```, which itself is based on ```juce::GroupComponent```.
 ```GroupComponent``` provides a **visual frame with a title**, and the title is centered using:
@@ -30,7 +30,7 @@ to define its own internal controls like buttons or knobs.
 <br>
 
 
-### 🔹 2. Static Layout via Constants
+###  2. Static Layout via Constants
 
 Each panel manually calculates component size and position using layout constants defined in the ```Mysize```
 namespace. 
@@ -53,7 +53,7 @@ across panels.
 <br>
 <br>
 
-### 🔹 3. Manual Panel Placement in Editor
+###  3. Manual Panel Placement in Editor
 
 All panels are manually created and positioned in the editor class (```EulerDelayAudioProcessorEditor```) using ```setSize()``` and ```setTopLeftPosition()```
 
