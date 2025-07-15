@@ -1,7 +1,7 @@
 ## XML Preset System
 
 
-### **📌 Introduction**
+### ** Introduction**
 
 The XML Preset system allows users to **save and load parameter states 
 as XML files.**
@@ -10,7 +10,7 @@ XML Presets are **user-defined, persistent,** and editable outside the plugin.
 
 <br>
 
-### **⚙️ System Architecture**
+### ** System Architecture**
 
 **1. UI Hierarchy (Top-Down)**
 
@@ -40,7 +40,7 @@ MyParameters ↔ juce::ValueTree ↔ APVTS
 
 <br>
 
-### **🔁 Runtime Flow**
+### ** Runtime Flow**
 
 **1. ComboBox triggers file dialog and action**
 
@@ -85,7 +85,7 @@ onChange = [this]()
 };
 ~~~
 
-✅ Selecting “Save” or “Load” triggers a file dialog.
+Selecting “Save” or “Load” triggers a file dialog.
 Once the file is selected, the corresponding function (```saveXmlPreset``` or ```loadXmlPreset```) is executed.
 
 <br>
@@ -112,7 +112,7 @@ void MyPresetManager::saveXmlPreset(const juce::File& inFileXml) noexcept
 }
 ~~~
 
-✅ The plugin’s parameter state is copied as a ```ValueTree```, converted to XML, and written to disk.
+ The plugin’s parameter state is copied as a ```ValueTree```, converted to XML, and written to disk.
 The name is updated so the ComboBox reflects the most recent preset.
 
 
@@ -139,7 +139,7 @@ void MyPresetManager::loadXmlPreset(const juce::File& inFileXml) noexcept
 }
 ~~~
 
-✅ If the loaded XML is valid, it’s converted back to a ValueTree and replaces the current parameter state.
+ If the loaded XML is valid, it’s converted back to a ValueTree and replaces the current parameter state.
 
 <br>
 
@@ -148,7 +148,7 @@ void MyPresetManager::loadXmlPreset(const juce::File& inFileXml) noexcept
 <br>
 
 
-### **🧠 Parameter ↔ State Helpers**
+### ** Parameter ↔ State Helpers**
 
 ~~~cpp
 // MyParameters::getStateCopied()
@@ -169,7 +169,7 @@ bool MyParameters::setParamsByValueTree(const juce::ValueTree& inState) noexcept
 }
 ~~~
 
-✅ These helper methods are the bridge between JUCE’s APVTS and your serialized preset format (XML).
+ These helper methods are the bridge between JUCE’s APVTS and your serialized preset format (XML).
 They ensure structural integrity and type safety during import/export.
 
 <br>
@@ -179,20 +179,20 @@ They ensure structural integrity and type safety during import/export.
 <br>
 
 
-### **✅ Advantages of This Structure**
+### ** Advantages of This Structure**
 
-**🔹 1. Persistent, user-defined presets**
+**1. Persistent, user-defined presets**
 - Users can save their own parameter configurations to .xml
 - Useful for backup, sharing, or long-term recall
 
-**🔹 2. Built entirely on JUCE-native structures**
+**2. Built entirely on JUCE-native structures**
 - Uses ValueTree and XmlElement, no custom serialization
 - Integrates smoothly with plugin state (getStateInformation / setStateInformation)
 
-**🔹 3. Modular, maintainable architecture**
+**3. Modular, maintainable architecture**
 - File I/O is handled only inside MyPresetManager
 - GUI (ComboBox) only triggers actions, not logic-heavy
 
-**🔹 4. Easy to extend**
+**4. Easy to extend**
 - Add preset folder browsing, recent files, overwrite warnings, or preset banks
 - Easily adaptable to host save/load mechanisms
