@@ -2,7 +2,7 @@
 
 <br>
 
-### **📌 Overview**
+### **Overview**
 
 The functions ```getStateInformation()``` and ```setStateInformation()``` are used by the host (DAW)
 to save and restore a plugin’s internal state during project saves and loads.
@@ -16,7 +16,7 @@ All this is serialized into a single **hierarchical** ```ValueTree``` **structur
 <br>
 <br>
 
-### 🌳 ValueTree Structure (Hierarchy Overview)
+###  ValueTree Structure (Hierarchy Overview)
 
 ~~~cpp
 Root: ValueTree("EulerDelay")      ← JucePlugin_Name
@@ -33,7 +33,7 @@ ensuring the plugin's state is self-contained and organized.
 
 <br>
 
-### 1️⃣ Saving Plugin State
+### 1. Saving Plugin State
 
 ~~~cpp
 void EulerDelayAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
@@ -57,13 +57,13 @@ void EulerDelayAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
 }
 ~~~
 
-✅ Both parameter values and preset name are saved as distinct child nodes inside the same root tree.
+Both parameter values and preset name are saved as distinct child nodes inside the same root tree.
 
 
 <br>
 <br>
 
-## 2️⃣ Restoring Plugin State
+## 2. Restoring Plugin State
 
 ~~~cpp
 void EulerDelayAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
@@ -94,7 +94,7 @@ Each part of the plugin (preset, parameters) is restored independently but withi
 <br>
 <br>
 
-### 3️⃣ Preset Metadata Node
+### 3. Preset Metadata Node
 
 ~~~cpp
 juce::ValueTree MyPresetManager::getState() const noexcept
@@ -112,7 +112,7 @@ juce::ValueTree MyPresetManager::getState() const noexcept
 <br>
 <br>
 
-### 4️⃣ Preset Restoration
+### 4. Preset Restoration
 
 ~~~cpp
 void MyPresetManager::setByState(const juce::ValueTree& inState) noexcept
@@ -131,24 +131,24 @@ void MyPresetManager::setByState(const juce::ValueTree& inState) noexcept
 <br>
 <br>
 
-### ✅ Practical Advantages of This Structure
+###  Practical Advantages of This Structure
 
-**🔹 1. Beyond parameters**
+**1. Beyond parameters**
 
 Stores preset names, UI states, and metadata — not just knob values.
 
-**🔹 2. Clear hierarchy**
+**2. Clear hierarchy**
 
 Named tree nodes prevent conflicts and support version-safe loading.
 
-**🔹 3. Modular architecture**
+**3. Modular architecture**
 
 APVTS handles parameters, PresetManager handles metadata → easy to maintain and test.
 
-**🔹 4. Debug & verify**
+**4. Debug & verify**
 
 State can be saved as XML for inspection or manual editing.
 
-**🔹 5. Easy to extend**
+**5. Easy to extend**
 
 Add new features (e.g., recent presets) by appending child nodes — no rewrites needed.
