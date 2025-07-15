@@ -1,4 +1,4 @@
-## ✅ 1. Overview : Modular GUI System
+##  1. Overview : Modular GUI System
 
 <br>
 
@@ -7,7 +7,7 @@ modularuzation, state-based rendering,** and a **centralized LookAndFeel customi
 
 <br>
 
-### 🔹 1. Structural Modularity (Panel-Based Design)
+###  1. Structural Modularity (Panel-Based Design)
 
 THe interface is divided into independent ```Panel``` classes, each inheriting from a common ```PanelBase```.
 Each panel is responsible for a specific function:
@@ -30,7 +30,7 @@ This modular approach enables **independent development and maintenance** of eac
 
 
 
-### 🔹 2. State-Based Rendering
+###  2. State-Based Rendering
 
 Certain UI elements are shown or hidden depending on toggle states:
 
@@ -47,7 +47,7 @@ This dynamic rendering is handeled via methods like ```buttonClicked()``` and ``
 <br>
 <br>
 
-### 🔹 3. Centralized Look & Feel Customization
+###  3. Centralized Look & Feel Customization
 
 All visual styling is handled through a custom ```MyLookAndFeel``` class, ensuring 
 consistency across the UI:
