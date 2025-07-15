@@ -2,7 +2,7 @@
 
 <br>
 
-### 🎯 What It Does
+###  What It Does
 
 The **Stereo Link** feature keeps Delay Time and Note parameters in sync between left and right channels. 
 When the toggle is enabled, modifying one side will automatically update the other to match it.
@@ -10,7 +10,7 @@ When the toggle is enabled, modifying one side will automatically update the oth
 <br>
 <br>
 
-### 🧱 1. Initial Setup & Listener Registration
+###  1. Initial Setup & Listener Registration
 
 At initialization, only the Link toggle parameter is registered as a listener:
 
@@ -38,7 +38,7 @@ if (inParamID == idLink && inValue == 1.0f)
 <br>
 <br>
 
-### 🔁 2. Synchronization Mechanism
+###  2. Synchronization Mechanism
 
 Once the Link is on, any change to a time or note knob (L or R) triggers ```parameterChanged()```.
 We determine which side was touched and mark it as the master:
@@ -81,7 +81,7 @@ if (mFlagLinking.load()) return;
 
 --------
 
-### ⛔ When Link Is Turned Off
+###  When Link Is Turned Off
 
 When the user disables the Link toggle:
 
@@ -101,7 +101,7 @@ mApvts.removeParameterListener(idNoteR, this);
 <br>
 
 
-### 🧵 Threading Considerations
+###  Threading Considerations
 
 - ```timerCallback()``` runs on the **GUI (message) thread**, not the audio thread.
 - To safely communicate with the audio thread, we use ```std::atomic``` for shared flags like ```mChannelMaster``` and ```mFlagLinking```.
