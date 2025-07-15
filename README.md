@@ -7,7 +7,7 @@ A JUCE-based delay plugin developed in C++.
 
 <br>
 
-## 📚 Documentation
+##  Documentation
 **All DSP and implementation details are available in the `docs/` folder:**
 
 
@@ -38,38 +38,38 @@ A JUCE-based delay plugin developed in C++.
  
 <br>
 
-## 🎛️ Features
+##  Features
 
-🕒 **Delay Section**
+ **Delay Section**
 - Tempo-synced or time-based delay modes (sync to BPM or set in milliseconds)
 - Independent L/R settings
 - Link toggle for syncing L/R delay times
 - Ping-Pong mode support
 
-🔁 **Feedback Section**
+ **Feedback Section**
 - Adjustable feedback amount
 - Low-cut filter
 - High-cut filter
 
-🎚️ **Output Section**
+ **Output Section**
 - Dry/Wet Mix control
 - Output Gain control
 
-🗂️ **Preset Management**
+ **Preset Management**
 - Preset loading & saving system
 
-🧰 **Technical Info**
+ **Technical Info**
 - Built using JUCE & Xcode
 - Supports AU, VST3, and AAX plugin formats
 
 <br>
 
-## 🛠 Build Instructions
+##  Build Instructions
 1. Open `EulerDelay.jucer` in Projucer
 2. Export to Xcode and open project
 3. Build and run
 
 <br>
 
-## 🔗 Author
+##  Author
 Created by SangHoon You (2025)
