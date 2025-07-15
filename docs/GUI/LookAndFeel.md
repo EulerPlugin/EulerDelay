@@ -1,8 +1,8 @@
-## ✅ 4. LookAndFeel System
+##  4. LookAndFeel System
 
 <br>
 
-### 🔹 1. Purpose
+###  1. Purpose
 
 ```MyLookAndFeel``` customized the entire plugin GUI by inheriting from ```LookAndFeel_V4```
 It unsures consistent **font, colors and component rendering logic**
@@ -19,7 +19,7 @@ This comes after all panels are added, to endure no visual inconsistencies.
 <br>
 <br>
 
-### 🔹 2. What is LookAndFeel?
+###  2. What is LookAndFeel?
 
 JUCE's ```LookAndFeel``` is a base class designed to fully override the drawing logic for all UI components
 
@@ -41,7 +41,7 @@ This makes it an **interface-like base**, requiring full implementation by the u
 <br>
 <br>
 
-### 🔹 3. Class Definition and Font Customization
+###  3. Class Definition and Font Customization
 
 <img width="486" alt="image" src="https://github.com/user-attachments/assets/6ffe0863-6cb9-4268-8fc0-d36c8daf48b3" />
 
@@ -76,7 +76,7 @@ juce::Font MyLookAndFeel::getPopupMenuFont()
 <br>
 <br>
 
-### 🔹 4. Centralized Color Management
+###  4. Centralized Color Management
 
 ~~~cpp
 // Class: MyLookAndFeel
@@ -95,7 +95,7 @@ setColour(juce::TextButton::textColourOnId, MyColors::Button::textToggled);
 <br>
 
 
-### 🔹 5. Rotary Knob Custom Drawing
+###  5. Rotary Knob Custom Drawing
 
 <img width="550" alt="image" src="https://github.com/user-attachments/assets/5bee16e8-5f5b-4a54-b90d-44fb32dd1492" />
 
